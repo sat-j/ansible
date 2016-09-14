@@ -1,0 +1,25 @@
+---
+
+- name: Create ansible-group
+  group: name=ansible-group state=present
+
+- name: passwordless sudo for ansible-group
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%ansible-group'
+    line: '%ansible-group ALL=(ALL) NOPASSWD:ALL'
+
+- name: create ansible-remote user and add to ansible-group
+  user:
+    name: ansible-remote
+    comment: ansible user for remote operations
+    groups: ansible-group
+    append: yes
+    createhome: yes
+
+- name: copy public key to the host
+  authorized_key:
+    user: ansible-remote
+    key: "{{ lookup('file', 'ansible-remote.pub') }}"
+

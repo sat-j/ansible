@@ -1,0 +1,12 @@
+- name: modify config in template
+  become: true
+  template: 
+    src: dbconfig.j2
+    dest: /etc/db-config/server1/server1_db_config.xml
+    group: dbgroup
+    owner: dbuser
+    mode: 0644
+     
+
+
+    

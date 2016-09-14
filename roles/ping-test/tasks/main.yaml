@@ -1,0 +1,4 @@
+---
+
+- name: ping the servers 
+  ping: 

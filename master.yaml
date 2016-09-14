@@ -1,0 +1,10 @@
+---
+# make this as the master playbook
+
+# Creates user ansible-remote and copies the ssh keys
+- hosts: all
+  sudo: yes
+  vars:
+    ansible_user: vagrant
+  roles:
+    - user-init

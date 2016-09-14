@@ -1,0 +1,4 @@
+---
+db_server: jdbc:oracle:thin:@test.server.com
+db_port: 32667
+db_instance: CQUSER

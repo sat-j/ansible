@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jdbc-data-source xmlns="http://www.bea.com/ns/weblogic/jdbc-data-source" xmlns:sec="http://www.bea.com/ns/weblogic/90/security" xmlns:wls="http://www.bea.com/ns/weblogic/90/security/wls" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bea.com/ns/weblogic/jdbc-data-source http://www.bea.com/ns/weblogic/jdbc-data-source/1.0/jdbc-data-source.xsd">
+  <name>rtcmDataSource</name>
+  <jdbc-driver-params>
+    <url>{{ db_server }}:{{ db_port }}:{{ db_instance }}</url>
+    <driver-name>oracle.jdbc.OracleDriver</driver-name>
+    <properties>
+      <property>
+        <name>user</name>
+        <value>COSSQA4</value>
+      </property>
+    </properties>
+    <password-encrypted>{3DES}CFYc1QOGNcI=</password-encrypted>
+  </jdbc-driver-params>
+  <jdbc-connection-pool-params>
+    <initial-capacity>2</initial-capacity>
+    <max-capacity>20</max-capacity>
+    <capacity-increment>1</capacity-increment>
+    <shrink-frequency-seconds>900</shrink-frequency-seconds>
+    <highest-num-waiters>2147483647</highest-num-waiters>
+    <connection-creation-retry-frequency-seconds>0</connection-creation-retry-frequency-seconds>
+    <connection-reserve-timeout-seconds>10</connection-reserve-timeout-seconds>
+    <test-frequency-seconds>120</test-frequency-seconds>
+    <test-connections-on-reserve>true</test-connections-on-reserve>
+    <ignore-in-use-connections-enabled>true</ignore-in-use-connections-enabled>
+    <inactive-connection-timeout-seconds>0</inactive-connection-timeout-seconds>
+    <test-table-name>SQL SELECT 1 FROM DUAL</test-table-name>
+    <login-delay-seconds>0</login-delay-seconds>
+    <statement-cache-size>10</statement-cache-size>
+    <statement-cache-type>LRU</statement-cache-type>
+    <remove-infected-connections>true</remove-infected-connections>
+    <seconds-to-trust-an-idle-pool-connection>10</seconds-to-trust-an-idle-pool-connection>
+    <statement-timeout>-1</statement-timeout>
+    <pinned-to-thread>false</pinned-to-thread>
+  </jdbc-connection-pool-params>
+  <jdbc-data-source-params>
+    <jndi-name>rogers/eai/rtcmDataSource</jndi-name>
+    <jndi-name>rogers/eai/rtiOSSDataSource</jndi-name>
+    <row-prefetch>false</row-prefetch>
+    <stream-chunk-size>256</stream-chunk-size>
+    <global-transactions-protocol>EmulateTwoPhaseCommit</global-transactions-protocol>
+  </jdbc-data-source-params>
+</jdbc-data-source>
+
